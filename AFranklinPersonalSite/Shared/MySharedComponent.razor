@@ -1,0 +1,12 @@
+﻿
+<p style="background-color:lightcyan">
+    <h3>Child Component</h3>
+    Cascaded text:
+    @Text
+    <MySharedComponentSharedComponent/>
+    I'm the end of the child component!
+</p>
+@code {
+    [CascadingParameter]
+    public string Text { get; set; } = "Placeholder text in Child component";
+}

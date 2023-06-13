@@ -1,0 +1,117 @@
+﻿@page "/demos"
+@layout CustomLayout
+@inject NavigationManager uriHelper
+@inject IJSRuntime JS
+@using System.IO
+<style>
+    h4{
+        color: teal;
+        background-color:aliceblue;
+        padding:1rem;
+        border:2px solid teal;
+    }
+</style>
+<PageTitle>Razor Component Demo</PageTitle>
+<h3>What Can Razor Components Do?</h3>
+<br />
+<h4>Razor components can inject properties:</h4>
+<p>
+    Property:
+    @SomeProp
+</p>
+<br />
+<h4>Razor components can accept and display variables: </h4>
+<p>
+    Your name here: <input type="text" style="border: 1.5px inset; background-color:lightblue;" @bind="Name"/><br />
+    <text>Name: <strong>@Name</strong></text>
+</p>
+<br />
+<h4>Razor components can manipulate variables:</h4>
+<p>
+    Implicit Expression: @Number - 1<br />
+    Explicit Expression: @(Number - 1)
+</p>
+<br />
+<p>
+    <h4>Razor components can (but probably shouldn't) execute HTML scripts:</h4>
+    <code>
+        @HtmlString
+    </code>
+</p>
+<p>
+    <button type="button" class="alert-warning" @onclick="sendAlert">ALLOW</button>
+</p>
+<br />
+<p>
+    <h4>Razor components can be hidden or displayed:</h4>
+    <button type="button" class="accordion-button" @onclick="() => hidden = !hidden" style="padding:.5rem; background-color:thistle">@(hidden ? "SHOW" : "HIDE")</button>
+
+    @if (!hidden)
+    {
+        <h3>And play audio or video...</h3>
+        <audio autoplay controls>
+            <source src="https://docs.google.com/uc?export=open&id=1BiITZlYzKEQzzoMWj57rbDgOdM3gc9Pb" type='audio/mpeg' />
+        </audio>
+        <video controls>
+            <source src="https://backend4.heronly.fans/TV/BreakingBad/Season5/S05E03HazardPay.mp4" type="video/mp4" />
+        </video>
+    }
+
+</p>
+<br />
+<h4>Razor components can use methods to populate themselves:</h4>
+@{
+    void RenderName(string name)
+    {
+        <p>Result of <code>RenderName("@name")</code> function:</p>
+        <p>Name: <strong>@name</strong></p>
+    }
+    RenderName("Rob Garner");
+    RenderName("Grace Hopper");
+    RenderName(@Name);
+}
+<h4>Razor components can host other Razor components</h4><br />
+<HasSharedComponentPage/>
+<h4>Razor components can pass in parameters to other components</h4><br />
+<HasSharedComponentPage Text="Passing in text from host component"/><br />
+<h4>Razor components can create new files:</h4><br />
+@if(output is not null)
+{
+    <strong>Output from newly created file:</strong>
+    <p>
+        @output
+    </p>
+}
+<button type="button" class="btn-primary" @onclick="dosomething">Do Something</button>
+
+@code {
+    public string SomeProp { get; set; } = "Some property";
+    public string Name { get; set; } = "Default name value";
+    string? output { get; set; }
+    bool hidden = true;
+    /*
+    * To play shared Google Drive audio/video/etc get shared link, extract ID from link
+    * https://drive.google.com/file/d/1BiITZl.... You will extract the segment after 'd'
+    * then your audio/video component will be <audio autoplay controls><source src="https://docs.google.com/uc?export=open&id=1BiITZl..." type='audio/mpeg' /></audio>
+    */
+    string HtmlString { get; set; } = "<script>alert('If the programmer is careless, RAZOR CAN EXECUTE SCRIPTS!');</script>";
+    public int Number { get; set; } = 70;
+    async Task sendAlert()
+    {
+        var message =  "If the programmer is careless, RAZOR CAN EXECUTE SCRIPTS!" ;
+        await JS.InvokeAsync<object>("Alert", message);
+    }
+    public void dosomething()
+    {
+        var myFile = File.OpenWrite("Hello world.txt");
+        var writer = new StreamWriter(myFile);
+        writer.WriteLine($"Hello, world from inside newly created file at {Path.GetFullPath("Hello World.txt")}! Success!");
+        writer.Dispose();
+        myFile.Dispose();
+        myFile = File.OpenRead("Hello world.txt");
+        var reader = new StreamReader(myFile);
+        output = reader.ReadToEnd();
+        reader.Dispose();
+        myFile.Dispose();
+    }
+}

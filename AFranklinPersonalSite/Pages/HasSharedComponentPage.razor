@@ -1,0 +1,13 @@
+﻿@page "/ParentPage/{Text}"
+
+<p style="background-color:lightgray">
+    <h3>Parent Page</h3>
+    <CascadingValue Value="Text">
+        <MySharedComponent/>
+    </CascadingValue>
+    Hey from the end of the parent component.
+    </p>
+@code {
+    [Parameter]
+    public string Text { get; set; }
+}

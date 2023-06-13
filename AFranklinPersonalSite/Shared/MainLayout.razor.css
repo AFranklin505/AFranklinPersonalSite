@@ -1,0 +1,117 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+article.content.px-4 {
+    background-image: url('/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgba(255,255,255, .4);
+    background-blend-mode: lighten;
+    padding: 0;
+}
+main {
+    flex: 1;
+}
+.content{
+    padding:0;
+}
+
+footer {
+    color:azure;
+    background-color: #8eb1c2;
+    font-size: large;
+    text-align:center;
+    padding-top: 1rem;
+    height:3.5rem;
+}
+footer ::deep a{
+    color:white;
+}
+header {
+    padding-top:.5rem;
+    height: 4rem;
+    font-style:oblique;
+    letter-spacing: .25rem;
+    word-spacing: .2rem;
+    line-height: 2.1rem;
+    position: sticky;
+    z-index: 999;
+    top: -10px;
+    box-shadow: 3px 6px 8px black;
+    font-family: 'Reggae One';
+    font-size: 2rem;
+    font-weight: bolder;
+    text-shadow: -5px 4px 4px black;
+    text-align: center;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdJechDsqwJCbwkTo8mfCDSsRukWGbPYOBg&usqp=CAU);
+    color: #81cdc6;
+    border: .2rem solid #365563;
+    background-size: cover;
+}
+.top-row {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row ::deep a, .top-row ::deep .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row ::deep a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth) {
+        display: none;
+    }
+
+    .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .top-row ::deep a, .top-row ::deep .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        background-image: linear-gradient(to bottom,#365563, #8eb1c2);
+    }
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth ::deep a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row, article {
+    }
+}

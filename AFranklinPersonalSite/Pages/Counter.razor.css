@@ -1,0 +1,105 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.875em;
+}
+
+p {
+    font-size: 1em;
+}
+
+#mainContent {
+    height: 100vh;
+}
+
+button {
+    font-family: Agency-FB, Cambria, Cochin, Georgia, Times;
+    font-size: 1em;
+    padding: .3em;
+    margin: 1em;
+    font-weight: bolder;
+    border: .1em solid #365563;
+    color: #E4E7EB;
+    background-color: #446879;
+    border-radius: 8%;
+    box-shadow: -4px 7px 4px black;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    min-height: 100%;
+}
+
+
+
+li {
+    text-align: left;
+    padding-left: 10px;
+}
+
+aside {
+    margin-right: 3vw;
+    display: block;
+    float: right;
+    box-shadow: -6px 5px 8px;
+    border-radius: 3%;
+    width: auto;
+    background-color: #608da2;
+}
+
+section {
+    font-size: 1.75em;
+}
+
+
+#subWindow {
+    vertical-align: middle;
+    margin:7rem;
+    margin-top:10rem;
+    padding:3rem;
+    display: block;
+    float: right;
+    width: 75%;
+    color: #253f4b;
+    background-color: rgba(255,255,255, .6);
+    border: .6em double #365563;
+}
+
+#linkedIn {
+    top: 15vh;
+    margin-top: -10vh;
+    width: 330px;
+    margin-left: 3vw;
+    background-color: black;
+    position: sticky;
+    z-index: 999;
+    display: block;
+    float: left;
+    box-shadow: -6px 5px 8px;
+    border-radius: 3%;
+}
+
+#gitHub {
+    border: .1em solid #365563;
+    border-radius: 3%;
+    background-color: black;
+    color: azure;
+    height: 15vh;
+    width: 40%;
+    position: sticky;
+    z-index: 999;
+    top: 32vh;
+    margin-right: 3vw;
+    display: block;
+    float: right;
+    box-shadow: -6px 5px 8px black;
+}

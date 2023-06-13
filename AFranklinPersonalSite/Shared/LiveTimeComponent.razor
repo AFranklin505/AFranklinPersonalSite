@@ -1,0 +1,36 @@
+﻿@implements IDisposable
+<style>
+    .live-time{
+        font-family:'Agency FB';
+    }
+
+    strong.live-time {
+        font-size:1.75rem;
+        color:red;
+        padding:2px;
+    }
+</style>
+<h4 class="live-time">You have been viewing this page for @count seconds.</h4>
+<strong class="live-time">@time</strong>
+@code {
+    int count = 0;
+    string time;
+    Timer timer;
+
+    protected override Task OnInitializedAsync()
+    {
+        timer = new Timer(Tick, null, 0, 1000);
+        return base.OnInitializedAsync();
+    }
+    private void Tick(object _)
+    {
+        count++;
+        time = DateTime.Now.ToLongTimeString();
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}

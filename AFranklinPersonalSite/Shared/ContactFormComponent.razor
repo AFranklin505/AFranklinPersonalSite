@@ -1,0 +1,86 @@
+﻿<PageTitle>Contact Us</PageTitle>
+<form action="table_demo.html" method="post">
+    <div>
+        <p>
+            <label for="userName">Name:</label>
+            <input type="text" name="userName" id="userName" placeholder="Name" @bind="Name" required />
+        </p>
+    </div>
+    <div>
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="user@example.com" @bind="Email" required />
+        </p>
+    </div>
+    <div>
+        <p>
+            <label for="mobile">Mobile:</label>
+            <input type="tel" name="mobile" id="mobile" placeholder="555.123.4567" @bind="Mobile" />
+        </p>
+    </div>
+    <div>
+        <p>
+            <label for="subj">Subject:
+            <select name="subj" @bind="Subject">
+                <option value="hello">Say Hello</option>
+                <option value="Support">Emotional Support</option>
+                <option value="billing">Billing (I assume collections)</option>
+                </select>
+            </label> 
+        </p>
+    </div>
+    <label for="msg">Message:</label>
+    <div>
+        <textarea name="msg" id="msg" rows="4" cols="40" maxlength="60" required @bind="Message" ></textarea>
+    </div>
+
+    <div>
+        <fieldset>
+            <div>
+                How amazing is my site?:
+                <p>
+                    Amazing<input type="radio" name="rad1" value="Amazing"/>
+                    Very amazing<input type="radio" name="rad1" value="Very amazing" />
+                    Unbelievable, really!<input type="radio" name="rad1" value="Unbelievable, really" />
+                    Hate it<input type="radio" name="rad1" value="Hate it" />
+                </p>
+            </div>
+            <hr />
+            <div>
+                Ready to hire me?
+                <p>
+                    Yes<input type="radio" name="rad2" value="Yes" />
+                    Hell yes!<input type="radio" name="rad2" value="Hell yes!" />
+                    When can you start?<input type="radio" name="rad2" value="When can you start" />
+                </p>
+            </div>
+            <hr />
+        </fieldset>
+    </div>
+    <div>
+        <p>
+            <button type="button" class="btn btn-success" @onclick="OnSubmit">Submit!</button>
+        </p>
+    </div>
+</form>
+
+@code {
+    string Name;
+    string Email;
+    string? Message;
+    string? Mobile;
+    string Subject;
+    void OnSubmit()
+    {
+        //MailMessage mail = new MailMessage();
+        //mail.To.Add("a.franklin520@gmail.com");
+        //mail.From = new MailAddress(Email);
+        //mail.Subject = Subject;
+        //mail.Body = $"Message: {Message}\nFrom: {Name}\nDate: {SelectedDate}\nColor: {Color}\nSlider Value: {SelectedSliderValue}"
+        //mail.IsBodyHtml = true;
+        //SmtpClient smtp = new SmtpClient
+        //    {
+        //    };
+        //smtp.Send(mail);
+    }
+}

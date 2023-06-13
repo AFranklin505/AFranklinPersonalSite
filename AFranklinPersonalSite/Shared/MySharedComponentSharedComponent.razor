@@ -1,0 +1,11 @@
+﻿<div style="background-color:antiquewhite">
+    <h3>Grandchild Component</h3>
+    <p>Cascaded text:
+        @Text
+    </p>
+    I'm the end of the grandchild component.
+</div>
+@code {
+    [CascadingParameter]
+    public string Text { get; set; } = "Placeholder text in grandchild component";
+}

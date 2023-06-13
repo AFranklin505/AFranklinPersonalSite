@@ -1,0 +1,32 @@
+﻿*{
+    padding-top:6px;
+    font-family:'Agency FB';
+    font-size:large;
+}
+select {
+    border: 1px solid teal;
+    background-color: #8eb1c2;
+    font-weight:bold;
+    color:azure;
+    padding:3px;
+}
+label{
+    font-weight:bolder;
+}
+textarea {
+    border: 1px solid teal;
+    opacity:0.6;
+}
+input{
+    border:1px solid teal;
+    opacity:0.6;
+}
+input[type=text]{
+    border: 1.5px inset;
+}
+input[type=email] {
+    border: 1.5px inset;
+}
+input[type=tel] {
+    border: 1.5px inset;
+}

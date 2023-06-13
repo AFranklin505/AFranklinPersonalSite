@@ -1,0 +1,58 @@
+﻿@page "/razorcontrolsdemo"
+<PageTitle>Razor Controls</PageTitle>
+<div id="mainContent">
+    <h3 style="font-weight:bolder; padding-top:2rem; padding-left:5rem; color:azure;">Razor Controls Demo</h3>
+    <div id="subWindow">
+        <div>
+            Pick a color for...reasons.
+            <p>
+                Color Picker:
+                <input type="color" @bind="Color" />
+            </p>
+        </div>
+        <div>
+            Pick a date also.
+            <p>
+                Date Picker:
+                <input type="date" @bind="SelectedDate" />
+            </p>
+        </div>
+        <div>
+            Try the range slider!
+            <p>
+                Range:
+                <input type="range" list="tickmarks" min="0" max="100" step="10" @bind="SelectedSliderValue">
+                <datalist id="tickmarks">
+                    <option value="0">0</option>
+                    <option value="10"></option>
+                    <option value="20"></option>
+                    <option value="30"></option>
+                    <option value="40"></option>
+                    <option value="50">50</option>
+                    <option value="60"></option>
+                    <option value="70"></option>
+                    <option value="80"></option>
+                    <option value="90"></option>
+                    <option value="100">100</option>
+                </datalist>
+            </p>
+            <p>
+                <b>You've selected:</b>
+                @SelectedSliderValue
+            </p>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    string? Color;
+    DateTime SelectedDate;
+    int SelectedSliderValue;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        SelectedDate = DateTime.Today;
+    }
+}

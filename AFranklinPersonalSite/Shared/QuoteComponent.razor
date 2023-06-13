@@ -1,0 +1,22 @@
+﻿@using System.Text.Json
+@using System.Text.Json.Nodes
+@inject HttpClient http
+<div style="font-size:1.5em; width:100%; border:3px ridge teal; text-align:center; padding:1rem; margin-block:1rem;">
+    <label>
+        Your daily inspiration from Kanye:
+        <p style="font-family:fantasy, 'Agency FB';">@quote</p>
+    </label>
+</div>
+
+@code {
+    string quote;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await http.GetAsync("https://api.kanye.rest");
+        response.EnsureSuccessStatusCode();
+        var temp = JsonNode.Parse(await response.Content.ReadAsStreamAsync());
+        quote = temp["quote"].GetValue<string>();
+        await base.OnInitializedAsync();
+    }
+}

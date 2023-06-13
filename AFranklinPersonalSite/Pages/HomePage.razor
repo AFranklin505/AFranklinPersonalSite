@@ -1,0 +1,31 @@
+﻿@page "/home"
+<PageTitle>Home</PageTitle>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reggae+One&effect=fire|emboss|neon|outline|shadow-multiple" />
+<style>
+    li {
+        list-style: none;
+        line-height: 2em;
+    }
+</style>
+    <div id="mainContent">
+        <h1 class="font-effect-fire" style="padding-top: 3vh; padding-bottom: 2.5vh; line-height: 1.5em ;text-align:center; font-style:oblique; font-family:'Times New Roman';">Welcome to my website!</h1>
+        <div id="subWindow">
+            <LiveTimeComponent/>
+            <QuoteComponent/>
+            <section style="font-weight:bolder">What can I do here?</section>
+            <p><br>This website is intended as a sandbox to practice my web-design and development skills.<br>Soon, you'll be able to check out cool projects I'm working on, interesting articles, maybe some embedded programs.<br><br></p>
+            <p>Really, this is just my personal project and there is no telling where it may lead.<br><br></p>
+            <section style="text-decoration: underline;">Projects:</section>
+            <div><a href="demos" style="font-size: 1.2em; font-weight:bolder; color: teal; " title="Razor Demo" alt="Hyperlink to my simple Razor Demo Page"><li>Razor Demo</li></a></div>
+            <div><a href="razorcontrolsdemo" style="font-size: 1.2em; font-weight:bolder; color: teal; " title="Razor Controls" alt="Hyperlink to my simple Razor Controls Demo Page"><li>Razor Controls</li></a></div>
+            <section style="line-height: 2em;"><br><br>Take a look around and enjoy some music.</section>
+            <div></div>
+            <iframe width="350" height="200" src="https://www.youtube-nocookie.com/embed/4oh7lct04Us?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;">Unable to load...</iframe>
+        </div>
+        <div style="height:3rem;"></div>
+    </div>
+
+@code {
+    
+
+}
